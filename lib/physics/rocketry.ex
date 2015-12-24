@@ -28,12 +28,16 @@ defmodule Physics.Rocketry do
   def orbital_speed(height) do
     height
       |> calculate_speed
-      |>round_to_nearest_tenth
   end
 
   def orbital_acceleration(height) do
     (orbital_speed(height) |> squared) / orbital_radius(height)
-      |> round_to_nearest_tenth
+  end
+
+  def orbital_term(height) do
+    height
+      |> calculate_term
+      |> seconds_to_hours
   end
 
   defp orbital_radius(height) do
@@ -47,6 +51,12 @@ defmodule Physics.Rocketry do
 
   defp calculate_speed(height) do
     newtons_gravitational_constant * Planets.earth.mass / orbital_radius(height)
+      |> square_root
+  end
+
+  defp calculate_term(height) do
+    4 * (:math.pi |> squared) * (orbital_radius(height) |> cubed) /
+    (newtons_gravitational_constant * earth.mass)
       |> square_root
   end
 

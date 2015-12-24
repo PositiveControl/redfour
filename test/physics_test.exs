@@ -20,11 +20,15 @@ defmodule PhysicsTest do
   end
 
   test "Physics.Rocketry.orbital_speed" do
-    assert Physics.Rocketry.orbital_speed(100) == 7845.8
+    assert Physics.Rocketry.orbital_speed(100) == 7845.797893364734
   end
 
   test "Physics.Rocketry.orbital_acceleration" do
-    assert Physics.Rocketry.orbital_acceleration(100) == 9.6
+    assert Physics.Rocketry.orbital_acceleration(100) == 9.512678810620692
+  end
+
+  test "Physics.Rocketry.orbital_term" do
+    assert Physics.Rocketry.orbital_term(100) == 1.5
   end
 
   test "Calcs.rounded_to_nearest_tenth" do
@@ -37,5 +41,13 @@ defmodule PhysicsTest do
 
   test "Calcs.squared" do
     assert Calcs.squared(5) == 25
+  end
+
+  test "Calcs.cubed" do
+    assert Calcs.cubed(2) == 8
+  end
+
+  test "Calcs.seconds_to_hours" do
+    assert Calcs.seconds_to_hours(3600) == 1
   end
 end

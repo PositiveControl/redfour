@@ -19,4 +19,12 @@ defmodule Calcs do
     val * val
   end
 
+  def cubed(val) do
+    val * val * val
+  end
+
+  def seconds_to_hours(seconds) do
+    (seconds / 60 / 60)
+      |> round_to_nearest_tenth
+  end
 end
