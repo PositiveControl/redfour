@@ -19,11 +19,23 @@ defmodule PhysicsTest do
         .escape_velocity(%{mass: 8.987e30, radius: 9.145e7}) == 3620.8
   end
 
+  test "Physics.Rocketry.orbital_speed" do
+    assert Physics.Rocketry.orbital_speed(100) == 7845.8
+  end
+
+  test "Physics.Rocketry.orbital_acceleration" do
+    assert Physics.Rocketry.orbital_acceleration(100) == 9.6
+  end
+
   test "Calcs.rounded_to_nearest_tenth" do
     assert Calcs.round_to_nearest_tenth(1.05) == 1.1
   end
 
   test "Calcs.convert_to_km" do
     assert Calcs.convert_to_km(5) == 0.005
+  end
+
+  test "Calcs.squared" do
+    assert Calcs.squared(5) == 25
   end
 end

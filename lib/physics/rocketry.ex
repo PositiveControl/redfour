@@ -25,8 +25,28 @@ defmodule Physics.Rocketry do
       |> round_to_nearest_tenth
   end
 
+  def orbital_speed(height) do
+    height
+      |> calculate_speed
+      |>round_to_nearest_tenth
+  end
+
+  def orbital_acceleration(height) do
+    (orbital_speed(height) |> squared) / orbital_radius(height)
+      |> round_to_nearest_tenth
+  end
+
+  defp orbital_radius(height) do
+    Planets.earth.radius + (height |> convert_to_m)
+  end
+
   defp calculate_escape(%{mass: mass, radius: radius}) do
     2 * newtons_gravitational_constant * mass / radius
+      |> square_root
+  end
+
+  defp calculate_speed(height) do
+    newtons_gravitational_constant * Planets.earth.mass / orbital_radius(height)
       |> square_root
   end
 
