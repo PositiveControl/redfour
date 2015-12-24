@@ -23,12 +23,48 @@ defmodule PhysicsTest do
     assert Physics.Rocketry.orbital_speed(100) == 7845.797893364734
   end
 
+  test "Physics.Rocketry.orbital_speed :mars" do
+    assert Physics.Rocketry.orbital_speed(:mars, 100) == 3489.6295341646633
+  end
+
+  test "Physics.Rocketry.orbital_speed :moon" do
+    assert Physics.Rocketry.orbital_speed(:moon, 100) == 1633.179172993282
+  end
+
+  test "Physics.Rocketry.orbital_speed :earth" do
+    assert Physics.Rocketry.orbital_speed(:earth, 100) == 7845.797893364734
+  end
+
   test "Physics.Rocketry.orbital_acceleration" do
     assert Physics.Rocketry.orbital_acceleration(100) == 9.512678810620692
   end
 
+  test "Physics.Rocketry.orbital_acceleration :mars" do
+    assert Physics.Rocketry.orbital_acceleration(:mars, 100) == 3.4792897959183673
+  end
+
+  test "Physics.Rocketry.orbital_acceleration :moon" do
+    assert Physics.Rocketry.orbital_acceleration(:moon, 100) == 1.4511829222519155
+  end
+
+  test "Physics.Rocketry.orbital_acceleration :earth" do
+    assert Physics.Rocketry.orbital_acceleration(:earth, 100) == 9.512678810620692
+  end
+
   test "Physics.Rocketry.orbital_term" do
     assert Physics.Rocketry.orbital_term(100) == 1.5
+  end
+
+  test "Physics.Rocketry.orbital_term :mars" do
+    assert Physics.Rocketry.orbital_term(:mars, 100) == 1.8
+  end
+
+  test "Physics.Rocketry.orbital_term :moon" do
+    assert Physics.Rocketry.orbital_term(:moon, 100) == 2.0
+  end
+
+  test "Physics.Rocketry.orbital_term :earth" do
+    assert Physics.Rocketry.orbital_term(:earth, 100) == 1.5
   end
 
   test "Calcs.rounded_to_nearest_tenth" do
