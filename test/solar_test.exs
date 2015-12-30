@@ -1,4 +1,5 @@
 defmodule SolarTest do
+  require IEx
   use ExUnit.Case
   use Timex
 
@@ -26,5 +27,13 @@ defmodule SolarTest do
 
   test "returns where no_eva is permitted", %{data: flares} do
     assert length(Solar.no_eva(flares)) == 3
+  end
+
+  test "returns deadliest flare", %{data: flares} do
+    assert Solar.deadliest(flares) == 99000
+  end
+
+  test "returns total_exposure", %{data: flares} do
+    assert Solar.total_exposure(flares) == 216911.7
   end
 end
